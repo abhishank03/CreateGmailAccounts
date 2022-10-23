@@ -16,18 +16,20 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@tag
+@emailID
 Feature: Title of your feature
   I want to use this template for my feature file
-
+  
+  Background: Driver initialization
+  Given I initialize chrome driver
 
   @gmail
   Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
+    Given I am navigating to gmail signup url
+    When I fill required details to create account with "<email_id>" and "<password>"
+    Then I verify account is created
 
     Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+      | email_id | password |
+      | name1    |        5 |
+      | name2    |        7 |

@@ -7,7 +7,7 @@ import org.testng.annotations.DataProvider;
 @CucumberOptions(
         features = {"src/test/resources/features"}
         ,glue = {"stepDefinitions"}
-       // ,tags = ""
+        ,tags = "@gmail"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
