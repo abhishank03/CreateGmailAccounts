@@ -10,11 +10,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverInitilize {
 	
-	WebDriver driver;
+	public WebDriver driver;
 	String frameworkPath = System.getProperty("user.dir");
 	String propertyFilePath = frameworkPath + "\\config.properties";
 	String chromeDriverPath = frameworkPath + "\\src\\main\\java\\drivers\\chromedriver.exe";
-	
+	public static String url;
+	static int counter;
 	
 	public WebDriver initiateDriver() {
 		
@@ -26,19 +27,27 @@ public class DriverInitilize {
 			prop.load(fis);
 			
 			String browser = prop.getProperty("browser");
+			System.out.println("browser: "+browser);
+			url = prop.getProperty("gURL");
+			System.out.println("url: "+url);
 			
 			
 			try {
 				
-				if(browser.equalsIgnoreCase("chrome")) {
-					
+				if(browser.trim().equalsIgnoreCase("chrome")) {
+					System.out.println("chromeDriverPath-"+chromeDriverPath);
 					System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-					driver = new ChromeDriver();
+					if(driver == null && counter == 0) {
+						driver = new ChromeDriver();
+						counter++;
+					}
+					
 					
 				}
 				
 			}
 			catch (Exception e) {
+				System.out.println("exception: "+e);
 				
 			}
 			
@@ -48,6 +57,7 @@ public class DriverInitilize {
 			System.out.println("File"+ "propertyFilePath "+  "Not found Exception: "+e);
 		}
 		
+		System.out.println("returning driver");
 		return driver;
 		
 	}
