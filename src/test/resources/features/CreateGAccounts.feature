@@ -19,17 +19,14 @@
 @emailID
 Feature: Title of your feature
   I want to use this template for my feature file
-  
-  Background: Driver initialization
-  Given I initialize chrome driver
 
   @gmail
   Scenario Outline: Title of your scenario outline
-    Given I am navigating to gmail signup url
-    When I fill required details to create account with "<email_id>" and "<password>"
-    Then I verify account is created
+    Given I initialize chrome driver
+    And I am navigating to gmail signup url
+    When I click on create account button
+    Then I provide account creation related details with "<FirstName>"  ,"<LastName>" , "<Username>" ,"<Passwd>" , "<ConfirmPasswd>"
 
     Examples: 
-      | email_id | password |
-      | name1    |        5 |
-      | name2    |        7 |
+      | FirstName | LastName | Username  | Passwd    | ConfirmPasswd |
+      | abhishank | tiwari   | abhivin03 | Imhere03# | Imhere03#     |
