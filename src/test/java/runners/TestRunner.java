@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = {"src/test/resources/features/ZerodhaAccountTraffic.feature"}
+        features = {"src/test/resources/features/ZerodhaAccountTrafficSearch.feature"}
         ,glue = {"stepDefinitions"}
     //    ,tags = "@gmail"
 )

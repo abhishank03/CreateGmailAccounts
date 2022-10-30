@@ -60,7 +60,7 @@ public class ZerodhaTraffic {
 	@Then("I quit")
 	public void i_quit() {
 		
-		GmailAccountCreation.driver.quit();
+		GmailAccountCreation.driver.close();;
 	    
 	}
 	
