@@ -5,9 +5,9 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = {"src/test/resources/features/CreateGAccounts.feature"}
+        features = {"src/test/resources/features/ZerodhaAccountTraffic.feature"}
         ,glue = {"stepDefinitions"}
-        ,tags = "@gmail"
+    //    ,tags = "@gmail"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 

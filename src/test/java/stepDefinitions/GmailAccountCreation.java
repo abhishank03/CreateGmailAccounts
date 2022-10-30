@@ -11,7 +11,7 @@ import pageObjects.LandingPage;
 
 public class GmailAccountCreation extends DriverInitilize {
 	
-	WebDriver driver;
+	static WebDriver driver;
 	
 	CreateAccountPage createAccountPage;
 	
@@ -61,7 +61,8 @@ public class GmailAccountCreation extends DriverInitilize {
 		System.out.println("validEmailId-"+validemailid);
 		while(validemailid) {
 			System.out.println("inside valid emailid");
-			Username= Username+"09";
+			Username= Username+"1";
+			System.out.println("New user name: "+Username);
 			createAccountPage.clearDetails();
 			createAccountPage.fillSignupDetails( FirstName,  LastName,  Username,  Passwd,  ConfirmPasswd);
 			createAccountPage.clickNext();

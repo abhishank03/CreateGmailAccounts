@@ -44,13 +44,19 @@ public class CreateAccountPage {
 	private WebElement validUsername;
 	
 	
-	public void fillSignupDetails(String FirstName ,String LastName, String Username,String Passwd, String ConfirmPasswd ) {
+	public void fillSignupDetails(String FirstName ,String LastName, String Username,String Passwd, String ConfirmPasswd ) throws InterruptedException {
 		
 		text_FirstName.sendKeys(FirstName);
+		Thread.sleep(3000);
 		text_LastName.sendKeys(LastName);
+		Thread.sleep(3000);
 		text_Username.sendKeys(Username);
+		System.out.println(Username);
+		Thread.sleep(3000);
 		text_Passwd.sendKeys(Passwd);
+		Thread.sleep(300);
 		text_ConfirmPasswd.sendKeys(ConfirmPasswd);
+		Thread.sleep(3000);
 		
 	}
 	
@@ -71,11 +77,15 @@ public class CreateAccountPage {
 		return isValid;
 	}
 	
-	public void clearDetails() {
+	public void clearDetails() throws InterruptedException {
 		text_FirstName.clear();
+		Thread.sleep(3000);
 		text_LastName.clear();
+		Thread.sleep(3000);
 		text_Username.clear();
+		Thread.sleep(3000);
 		text_Passwd.clear();
+		Thread.sleep(3000);
 		text_ConfirmPasswd.clear();
 	}
 

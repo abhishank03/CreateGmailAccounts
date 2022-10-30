@@ -1,4 +1,4 @@
-#Author: your.email@your.domain.com
+#Author: abhishankTiwari
 #Keywords Summary :
 #Feature: List of scenarios.
 #Scenario: Business rule through list of steps with arguments.
@@ -16,17 +16,17 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@emailID
+@tag
 Feature: Title of your feature
   I want to use this template for my feature file
 
-  @gmail
+  @Zerodha @Blogging
   Scenario Outline: Title of your scenario outline
     Given I initialize chrome driver
-    And I am navigating to gmail signup url
-    When I click on create account button
-    Then I provide account creation related details with "<FirstName>"  ,"<LastName>" , "<Username>" ,"<Passwd>" , "<ConfirmPasswd>"
+    When I navigate to "<bloggingLink>"
+    And I spend "<amountTime>" on this blog
+    Then I quit
 
     Examples: 
-      | FirstName | LastName | Username     | Passwd    | ConfirmPasswd |
-      | Abhishek     | Tiwari  | abhishek19 | Imhere03# | Imhere03#     |
+      | bloggingLink                                              | amountTime |
+      | https://netizensays.com/zerodha-mein-account-kaise-khole/ |          2 |
