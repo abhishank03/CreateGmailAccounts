@@ -4,9 +4,10 @@ package base;
 import java.io.FileInputStream;
 import java.util.Properties;
 
-import org.apache.logging.log4j.core.config.Property;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class DriverInitilize {
 	
@@ -38,7 +39,12 @@ public class DriverInitilize {
 					System.out.println("chromeDriverPath-"+chromeDriverPath);
 					System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 					if(driver == null && counter == 0) {
-						driver = new ChromeDriver();
+						
+						ChromeOptions options = new ChromeOptions();
+						options.addArguments("--incognito");
+						DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+						capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+						driver = new ChromeDriver(capabilities);
 						counter++;
 					}
 					
