@@ -1,7 +1,12 @@
 package stepDefinitions;
 
-import org.openqa.selenium.WebDriver;
+import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import base.CustomPrinter;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pageObjects.ProtonSignupPage;
@@ -19,7 +24,9 @@ public class ProtonEmailCreation {
 		
 		driver.get("https://account.proton.me/signup?plan=free&billing=12&minimumCycle=12&currency=EUR&language=en");
 		driver.manage().window().maximize();
-	  
+		List<WebElement> iframeElements = driver.findElements(By.tagName("iframe"));
+		System.out.println("The total number of iframes are " + iframeElements.size());
+		
 	}
 
 	@Given("I provide mandatory fields like {string},{string},{string}")
@@ -29,8 +36,14 @@ public class ProtonEmailCreation {
 		protonSignup =  new ProtonSignupPage(driver);
 		
 		try {
-			Thread.sleep(4000);
-			protonSignup.provideMandatoryFields(username, password, repeatpassword);
+			CustomPrinter.printValues("I provide Mandatory fields like username, pass, repass");
+			Thread.sleep(2000);
+			//protonSignup.provideMandatoryFields(username, password, repeatpassword);
+			protonSignup.provideUsername(username);
+			driver.switchTo().defaultContent();
+			protonSignup.providePassword(password);
+			protonSignup.provideRePassword(repeatpassword);
+			CustomPrinter.printValues("fields provided");
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -29,5 +29,5 @@ Feature: Title of your feature
 
     #  Then I provide account creation related details with "<FirstName>"  ,"<LastName>" , "<Username>" ,"<Passwd>" , "<ConfirmPasswd>"
     Examples: 
-      | username | password | repeatpassword | FirstName | LastName  | Username |
-      | Abhishek | Tiwari   | abhishek1920   | Imhere03# | Imhere03# |          |
+      | username | password  | repeatpassword | FirstName | LastName |
+      | Abhishek | Imhere03@ | Imhere03@      | abhishek  | tiwari   |
